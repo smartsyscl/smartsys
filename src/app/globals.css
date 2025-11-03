@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 225 67% 94%; /* Light Blue (#E8EAF6) */
+    --foreground: 225 10% 20%; /* Dark Blue-Gray for text */
+    --card: 0 0% 100%; /* White for cards */
+    --card-foreground: 225 10% 20%;
+    --popover: 0 0% 100%; /* White for popovers */
+    --popover-foreground: 225 10% 20%;
+    --primary: 231 48% 54%; /* Deep Blue (#3F51B5) */
+    --primary-foreground: 0 0% 98%; /* White text on primary */
+    --secondary: 225 50% 90%; /* Lighter blue for secondary elements */
+    --secondary-foreground: 231 48% 54%;
+    --muted: 225 50% 90%;
+    --muted-foreground: 225 10% 40%; /* Dimmer text */
+    --accent: 259 45% 63%; /* Soft Purple (#9575CD) */
+    --accent-foreground: 0 0% 98%; /* White text on accent */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 225 20% 80%; /* Light blue-gray border */
+    --input: 225 20% 85%; /* Slightly darker input background */
+    --ring: 231 48% 54%; /* Should match primary */
+    --chart-1: 231 48% 54%;
+    --chart-2: 259 45% 63%;
+    --chart-3: 230 40% 65%;
+    --chart-4: 210 50% 70%;
+    --chart-5: 240 40% 80%;
+    --radius: 0.5rem;
+
+    /* Sidebar specific colors can remain dark or be adjusted if needed */
+    --sidebar-background: 0 0% 8%; /* Neutral dark gray for sidebar */
+    --sidebar-foreground: 0 0% 90%; /* Slightly dimmer text for sidebar */
+    --sidebar-primary: 259 45% 63%; /* Using accent for sidebar primary */
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 231 48% 54%; /* Using new primary for sidebar accent */
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 18%; /* Neutral dark gray for sidebar border */
+    --sidebar-ring: 259 45% 63%; /* Using accent for sidebar ring */
+  }
+
+  .dark {
+    --background: 0 0% 6%; /* Very dark gray, almost black */
+    --foreground: 0 0% 95%; /* Off-white for text */
+    --card: 0 0% 10%; /* Dark gray for cards */
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 10%; /* Dark gray for popovers */
+    --popover-foreground: 0 0% 95%;
+    --primary: 231 48% 54%; /* Deep Blue */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 15%; /* Dark gray for secondary elements */
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 15%; /* Dark gray for muted elements */
+    --muted-foreground: 0 0% 65%; /* Slightly dimmer gray for muted text */
+    --accent: 259 45% 63%; /* Soft purple */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%; /* Dark gray for borders */
+    --input: 0 0% 20%; /* Dark gray for input backgrounds */
+    --ring: 231 48% 54%;
+    --chart-1: 231 48% 54%;
+    --chart-2: 259 45% 63%;
+    --chart-3: 230 40% 65%;
+    --chart-4: 210 50% 70%;
+    --chart-5: 240 40% 80%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  section {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+  .container {
+    @apply px-4 md:px-6;
+  }
+}
+
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+  
+  .printable-area, .printable-area * {
+    visibility: visible;
+  }
+
+  .printable-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  
+  .printable-area > div {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    height: 297mm !important;
+    padding: 20mm !important;
+    margin: 0 auto !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-family: sans-serif !important;
+    color: black !important;
+  }
+  
+  .text-primary, .fill-primary {
+    color: #3F51B5 !important;
+    fill: #3F51B5 !important;
+  }
+
+  .text-muted-foreground {
+     color: #6B7280 !important;
+  }
+}
